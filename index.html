@@ -176,7 +176,24 @@
 
   <!-- MASAÜSTÜ -->
   <div class="desktop" sysDesktopBackground>
-    <!-- PENCERE 1: messages -->
+
+    <div class="window window--files window--finder window--minimized" data-windowBackdrop="true" data-window="files" style="min-width:600px;width:720px;min-height:390px;height:480px;top:200px;left:600px;" title="dynamic">
+      <div class="window__handler">
+        <div class="window__title">📁 Belgeler</div>
+        <div class="window__controls"><a class="window__close"></a><a class="window__minimize"></a><a class="window__maximize"></a></div>
+        <div class="window__actions"><a class="nav prev disabled"></a><a class="nav next disabled"></a><a class="search"><i></i><input type="text" class="filesysSearch" placeholder="Ara" spellcheck="false" autocomplete="off"/></a></div>
+      </div>
+      <div class="window__body">
+        <div class="sidebar" data-display="items">
+          <div class="title" data-group="favorites">Favoriler</div>
+          <div class="item" data-item="recents">Son Kullanılanlar</div>
+          <div class="item" data-item="downloads">İndirilenler</div>
+          <div class="item active" data-item="documents">Belgeler</div>
+          <div class="item" data-item="desktop">Masaüstü</div>
+        </div>
+        <div class="window__main hasSideBar filesys" data-visualization="icons"></div>
+      </div>
+    </div>
 
     <div class="window nocm window--messages window--minimized" data-windowBackdrop="true" data-window="messages" style="min-width:710px;height:500px;width:710px;min-height:500px;top:100px;left:400px;">
       <div class="window__handler">
@@ -309,7 +326,6 @@
         </div>
       </div>
     </div>
-    <!-- PENCERE 2: game1 -->
 
     <div class="window window--game1 window--minimized" data-windowBackdrop="true" data-window="game1" style="width:800px;height:540px;min-width:600px;min-height:400px;top:80px;left:300px;">
       <div class="window__handler">
@@ -320,7 +336,16 @@
         <div class="misra-placeholder"><img src="icon_tetris.png" /><p>Tetris</p><p style="font-size:11px;">Oyun yakında eklenecek</p></div>
       </div>
     </div>
-    <!-- PENCERE 3: photos -->
+
+    <div class="window window--instagram window--minimized" data-windowBackdrop="true" data-window="instagram" style="width:420px;height:600px;min-width:420px;min-height:500px;top:80px;left:350px;">
+      <div class="window__handler">
+        <div class="window__title" style="display:flex;align-items:center;gap:8px;"><img src="icon_instagram.png" style="width:16px;height:16px;border-radius:4px;" /> Instagram</div>
+        <div class="window__controls"><a class="window__close"></a><a class="window__minimize"></a><a class="window__maximize"></a></div>
+      </div>
+      <div class="window__body">
+        <div class="misra-placeholder"><img src="icon_instagram.png" /><p>Instagram</p><p style="font-size:11px;">İçerik yakında eklenecek</p></div>
+      </div>
+    </div>
 
     <div class="window window--photos window--minimized" data-windowBackdrop="true" data-window="photos" style="width:900px;height:560px;min-width:600px;min-height:400px;top:80px;left:250px;">
       <div class="window__handler">
@@ -390,50 +415,6 @@
         </div>
       </div>
     </div>
-    <!-- PENCERE 4: game2 -->
-
-    <div class="window window--game2 window--minimized" data-windowBackdrop="true" data-window="game2" style="width:800px;height:540px;min-width:600px;min-height:400px;top:80px;left:300px;">
-      <div class="window__handler">
-        <div class="window__title" style="display:flex;align-items:center;gap:8px;"><img src="icon_crossword.png" style="width:16px;height:16px;border-radius:4px;" /> Kelime Oyunu</div>
-        <div class="window__controls"><a class="window__close"></a><a class="window__minimize"></a><a class="window__maximize"></a></div>
-      </div>
-      <div class="window__body">
-        <div class="misra-placeholder"><img src="icon_crossword.png" /><p>Kelime Oyunu</p><p style="font-size:11px;">Oyun yakında eklenecek</p></div>
-      </div>
-    </div>
-    <!-- PENCERE 5: letterboxd -->
-
-    <div class="window window--letterboxd window--minimized" data-windowBackdrop="true" data-window="letterboxd" style="width:680px;height:560px;min-width:500px;min-height:400px;top:80px;left:340px;">
-      <div class="window__handler">
-        <div class="window__title" style="display:flex;align-items:center;gap:8px;"><img src="icon_letterboxd.png" style="width:16px;height:16px;border-radius:4px;" /> Letterboxd</div>
-        <div class="window__controls"><a class="window__close"></a><a class="window__minimize"></a><a class="window__maximize"></a></div>
-      </div>
-      <div class="window__body" style="background:#1a1a1a;overflow-y:auto;">
-        <div style="padding:20px;">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid #2a2a2a;">
-            <img src="icon_letterboxd.png" style="width:48px;height:48px;border-radius:10px;" />
-            <div>
-              <div style="color:#fff;font-size:16px;font-weight:600;">Tolga'nın All-Time Favorileri</div>
-              <div style="color:#888;font-size:12px;margin-top:2px;">41 film</div>
-              <div style="color:#666;font-size:11px;font-style:italic;margin-top:2px;">"İzledikten sonra bir süre konuşamadığın filmler."</div>
-            </div>
-          </div>
-          <div id="lb-list"></div>
-        </div>
-      </div>
-    </div>
-    <!-- PENCERE 6: instagram -->
-
-    <div class="window window--instagram window--minimized" data-windowBackdrop="true" data-window="instagram" style="width:420px;height:600px;min-width:420px;min-height:500px;top:80px;left:350px;">
-      <div class="window__handler">
-        <div class="window__title" style="display:flex;align-items:center;gap:8px;"><img src="icon_instagram.png" style="width:16px;height:16px;border-radius:4px;" /> Instagram</div>
-        <div class="window__controls"><a class="window__close"></a><a class="window__minimize"></a><a class="window__maximize"></a></div>
-      </div>
-      <div class="window__body">
-        <div class="misra-placeholder"><img src="icon_instagram.png" /><p>Instagram</p><p style="font-size:11px;">İçerik yakında eklenecek</p></div>
-      </div>
-    </div>
-    <!-- PENCERE 7: spotify -->
 
     <div class="window window--spotify window--minimized" data-windowBackdrop="true" data-window="spotify" style="width:820px;height:560px;min-width:500px;min-height:400px;top:80px;left:300px;">
       <div class="window__handler">
@@ -463,7 +444,36 @@
         </div>
       </div>
     </div>
-    <!-- PENCERE 8: cal3 -->
+
+    <div class="window window--letterboxd window--minimized" data-windowBackdrop="true" data-window="letterboxd" style="width:680px;height:560px;min-width:500px;min-height:400px;top:80px;left:340px;">
+      <div class="window__handler">
+        <div class="window__title" style="display:flex;align-items:center;gap:8px;"><img src="icon_letterboxd.png" style="width:16px;height:16px;border-radius:4px;" /> Letterboxd</div>
+        <div class="window__controls"><a class="window__close"></a><a class="window__minimize"></a><a class="window__maximize"></a></div>
+      </div>
+      <div class="window__body" style="background:#1a1a1a;overflow-y:auto;">
+        <div style="padding:20px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid #2a2a2a;">
+            <img src="icon_letterboxd.png" style="width:48px;height:48px;border-radius:10px;" />
+            <div>
+              <div style="color:#fff;font-size:16px;font-weight:600;">Tolga'nın All-Time Favorileri</div>
+              <div style="color:#888;font-size:12px;margin-top:2px;">41 film</div>
+              <div style="color:#666;font-size:11px;font-style:italic;margin-top:2px;">"İzledikten sonra bir süre konuşamadığın filmler."</div>
+            </div>
+          </div>
+          <div id="lb-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="window window--game2 window--minimized" data-windowBackdrop="true" data-window="game2" style="width:800px;height:540px;min-width:600px;min-height:400px;top:80px;left:300px;">
+      <div class="window__handler">
+        <div class="window__title" style="display:flex;align-items:center;gap:8px;"><img src="icon_crossword.png" style="width:16px;height:16px;border-radius:4px;" /> Kelime Oyunu</div>
+        <div class="window__controls"><a class="window__close"></a><a class="window__minimize"></a><a class="window__maximize"></a></div>
+      </div>
+      <div class="window__body">
+        <div class="misra-placeholder"><img src="icon_crossword.png" /><p>Kelime Oyunu</p><p style="font-size:11px;">Oyun yakında eklenecek</p></div>
+      </div>
+    </div>
 
     <div class="window window--calendar2 window--minimized" data-windowBackdrop="true" data-window="cal3" style="width:680px;height:520px;min-width:500px;min-height:400px;top:80px;left:340px;">
       <div class="window__handler">
@@ -514,24 +524,6 @@
         <tr><td>Pil:</td><td><label class="item canCheck"><input type="checkbox" class="sPowerShowPercentage" checked/>Pil yüzdesini göster</label></td></tr>
         <tr><td>Geliştirici:</td><td><label class="enableTestPanel"><button type="button">Dev Paneli</button></label>&nbsp;<label class="clickable" data-trigger="window" data-window="terminal"><button type="button">Terminal</button></label></td></tr>
       </table></div></div></div>
-    </div>
-
-    <div class="window window--files window--finder window--minimized" data-windowBackdrop="true" data-window="files" style="min-width:600px;width:720px;min-height:390px;height:480px;top:200px;left:600px;" title="dynamic">
-      <div class="window__handler">
-        <div class="window__title">📁 Belgeler</div>
-        <div class="window__controls"><a class="window__close"></a><a class="window__minimize"></a><a class="window__maximize"></a></div>
-        <div class="window__actions"><a class="nav prev disabled"></a><a class="nav next disabled"></a><a class="search"><i></i><input type="text" class="filesysSearch" placeholder="Ara" spellcheck="false" autocomplete="off"/></a></div>
-      </div>
-      <div class="window__body">
-        <div class="sidebar" data-display="items">
-          <div class="title" data-group="favorites">Favoriler</div>
-          <div class="item" data-item="recents">Son Kullanılanlar</div>
-          <div class="item" data-item="downloads">İndirilenler</div>
-          <div class="item active" data-item="documents">Belgeler</div>
-          <div class="item" data-item="desktop">Masaüstü</div>
-        </div>
-        <div class="window__main hasSideBar filesys" data-visualization="icons"></div>
-      </div>
     </div>
 
     <div class="window window--calendar window--minimized" data-window="calendar" style="min-width:600px;width:720px;min-height:390px;height:480px;top:200px;left:600px;">
