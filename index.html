@@ -203,29 +203,35 @@
         <div class="new"></div>
       </div>
       <div class="window__body">
+        <style>
+          .msg-header { padding:10px 16px; background:#1e1e1e; border-bottom:1px solid #333; font-size:14px; font-weight:600; color:#fff; flex-shrink:0; }
+          .messages-main-wrap { display:flex; flex-direction:column; height:100%; }
+          .messages-main-wrap .window__main { flex:1; overflow-y:auto; }
+        </style>
         <div class="sidebar" data-display="cards">
           <div class="card active" style="background-image:url(tolga_pp.png);" onclick="msgShow('tolga',this)">
             <div class="data" data-date="3g önce" data-bubbles="1"></div>
             <span data-title="Tolga" data-subtitle="daha başının etini çok yicem"></span>
           </div>
-          <div class="card" style="background:linear-gradient(135deg,#f093fb,#f5576c);" onclick="msgShow('nil',this)">
+          <div class="card" style="background:#3a3a3c;" onclick="msgShow('nil',this)">
             <div class="data" data-date="2g önce" data-bubbles="0"></div>
             <span data-title="Nil" data-subtitle="anlaştık 😭"></span>
           </div>
-          <div class="card" style="background:linear-gradient(135deg,#4facfe,#00f2fe);" onclick="msgShow('anne',this)">
+          <div class="card" style="background:#3a3a3c;" onclick="msgShow('anne',this)">
             <div class="data" data-date="1g önce" data-bubbles="0"></div>
             <span data-title="Anne" data-subtitle="Görüşürüz Mısra Hanım!"></span>
           </div>
-          <div class="card" style="background:#2c3e50;" onclick="msgShow('hoca',this)">
+          <div class="card" style="background:#3a3a3c;" onclick="msgShow('hoca',this)">
             <div class="data" data-date="4g önce" data-bubbles="0"></div>
             <span data-title="Selim Hoca" data-subtitle="Başarılar Mısracım."></span>
           </div>
-          <div class="card" style="background:linear-gradient(135deg,#a8edea,#fed6e3);" onclick="msgShow('salon',this)">
+          <div class="card" style="background:#3a3a3c;" onclick="msgShow('salon',this)">
             <div class="data" data-date="2g önce" data-bubbles="0"></div>
             <span data-title="BeautyNailSalon" data-subtitle="Görüşürüz Mısra Hanım!"></span>
           </div>
         </div>
-        <div class="window__main hasSideBarCards messages" style="overflow-y:auto;padding:12px;">
+        <div class="window__main hasSideBarCards messages" style="overflow-y:auto;padding:12px;display:flex;flex-direction:column;">
+          <div id="msg-header-name" style="font-size:13px;font-weight:600;color:#fff;padding:8px 4px 12px;border-bottom:1px solid #333;margin-bottom:8px;flex-shrink:0;">Tolga</div>
           <div id="msg-tolga" style="display:flex;flex-direction:column;gap:4px;">
             <div class="wa-day">Cuma</div>
             <span class="message"><span>Nasılsın</span></span>
@@ -661,6 +667,9 @@
     el.classList.add('active');
     var target = document.getElementById('msg-'+who);
     if(target) target.style.display='flex';
+    var names = {tolga:'Tolga', nil:'Nil', anne:'Anne', hoca:'Selim Hoca', salon:'BeautyNailSalon'};
+    var hdr = document.getElementById('msg-header-name');
+    if(hdr) hdr.textContent = names[who] || who;
   };
 
   // Takvim
@@ -808,30 +817,34 @@
     }
   });
 
-  // Maximize fix - her penceredeki maximize butonunu override et
-  setTimeout(function() {
+  // Maximize/minimize fix
+  function attachMaximize() {
     document.querySelectorAll('.window__maximize:not(.disabled)').forEach(function(btn) {
+      if (btn.dataset.attached) return;
+      btn.dataset.attached = '1';
       btn.addEventListener('click', function(e) {
         e.stopPropagation();
+        e.preventDefault();
         var win = this.closest('.window');
         if (!win) return;
         if (win.classList.contains('window--fullscreen')) {
           win.classList.remove('window--fullscreen');
-          win.style.cssText = win.dataset.prevStyle || '';
+          if (win.dataset.prevStyle !== undefined) {
+            win.setAttribute('style', win.dataset.prevStyle);
+          }
         } else {
-          win.dataset.prevStyle = win.style.cssText;
+          win.dataset.prevStyle = win.getAttribute('style') || '';
           win.classList.add('window--fullscreen');
-          win.style.top = '0';
-          win.style.left = '0';
-          win.style.width = '100vw';
-          win.style.height = '100vh';
-          win.style.zIndex = '9998';
-          win.style.borderRadius = '0';
-          win.style.maxWidth = 'none';
-          win.style.maxHeight = 'none';
         }
       });
     });
-  }, 1000);
+  }
+  setTimeout(attachMaximize, 500);
+  setTimeout(attachMaximize, 1500);
+  document.addEventListener('click', function(e) {
+    if (e.target && e.target.closest('[data-window]')) {
+      setTimeout(attachMaximize, 200);
+    }
+  });
 </body>
 </html>
